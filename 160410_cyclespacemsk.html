@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'/>
+  <title>Cyclespace Moscow</title>
+  <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.16.0/mapbox-gl.css' rel='stylesheet' />
+  <link rel="stylesheet" type="text/css" href="160410_style.css"/>
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <!--Header-->
+  <div id=header>
+    <div id=logo>
+        <img src="160409_logo.svg"/>
+    </div>
+    <div id=name>ВЕЛОМАРШРУТЫ<span>МСК</span></div>
+    <div id=aboutbtn>О проекте</div>
+    <div id=social>
+      <a href="https://www.facebook.com/cyclespacemsk/" class=join target="_blank" title="группа на facebook">
+        <img src="F_logo_24.svg"/>
+      </a>
+      <a href="https://vk.com/cyclespacemsk" class=join target="_blank" title="группа во Вконтакте">
+        <img src="B_logo_24.svg"/>
+      </a>
+    </div>
+  </div>
+  <!--About text-->
+  <div id=abouttext>
+    <div id=closebtn><img src="closeBtn.svg"/></div>
+      <p id=idea>Проект посвящен поиску места велосипеда в современной Москве. Есть ли в Москве пространства, удобные для передвижения на велосипеде и можно ли объединить их в единую сеть, покрывающую весь город?</p>
+      <h4 class=aboutmenu>Цели и задачи проекта</h4>
+      <ul class=content>
+        <li>ИССЛЕДОВАНИЕ. Поиск возможностей потенциального развития, выявление проблем, передача собранной информации в Департамент транспорта Москвы;</li>
+        <li>ПОПУЛЯРИЗАЦИЯ. Показать максимально удобные маршруты для эффективного передвижения по городу;</li>
+        <li>СОЗДАНИЕ ИНТЕРАКТИВНОЙ КАРТЫ, на которой можно не только увидеть нить маршрута, но и понять насколько комфортной/дискомфортной может быть поездка.</li>
+      </ul>
+      <h4 class=aboutmenu>Вкратце о работе проекта</h4>
+      <p class=content>Каждый год посвящается определенной теме. Собираем по ней информацию, в процессе публикуем результаты в социальных сетях, обсуждаем с местными велосипедистами, а в конце года передаем результаты в Департамент транспорта.<br>Проект начал работу в 2015 году. Тема первого года - маршруты вдоль радиальных линий метро. Результаты сейчас отображены на карте.<br>Тема 2016 года - связи между районами. Пересечение железных дорог, автомагистралей, рек и т. п. Приглашаем принять участие в проекте!</p>
+      <h4 class=aboutmenu>Как принять участие</h4>
+      <ul class=content>
+        <li>ЛЕГКО - подпишитесь в соцсетях и комментируйте посты про знакомые вам части города;</li>
+        <li>ПРОСТО напишите нам и сообщите какую часть города вы хорошо знаете, чтобы мы могли обратиться к вам за консультацией;</li>
+        <li>С ЭНТУЗИАЗМОМ станьте частью команды, участвуйте в поездках, собирайте информацию, осваивайте азы работы с картами (OSM, QGIS, Mapbox).</li>
+      </ul>
+      <h4 class=aboutmenu>Поддержать финансово</h4>
+      <p class=content>Поддержать проект можно переводом на карту Сбербанка 1234 1234 1234 1234 с комментарием "Веломаршруты"</br>Полученные средства пойдут на дальнейшую разработку сайта и продвижение проекта в соцсетях.</p>
+      <p class=end>Автор проекта – Юрий Назаров (<a href="https://www.facebook.com/yuri.nazarov.50" target="_blank">Facebook</a>, <a href="https://vk.com/id1340014" target="_blank">ВКонтакте</a>)<br>Не любите соцсети? пишите на mail@cyclespacemsk.zu</p>
+      <p class=end>Дружественный проект - <a href="http://bikemap.me/" target="_blank">Велокарта Москвы</a>
+      <p class=end>Спасибо <a href="https://www.facebook.com/karmatsky" target="_blank">Андрею Кармацкому</a> из <a href="http://urbica.co/" target="_blank">Urbica Design</a> за уроки и поддержку при создании онлайн-карты.
+  </div>
+  </div>
+  <div id=footer>
+    <div id=legend>
+      <div class=legenditem><img src="L-CInfr.svg"/></div>
+      <div class=legenditem><img src="L-Good.svg"/></div>
+      <div class=legenditem><img src="L-GSide.svg"/></div>
+      <div class=legenditem><img src="L-Neutral.svg"/></div>
+      <div class=legenditem><img src="L-BRoad.svg"/></div>
+      <div class=legenditem><img src="L-BSide.svg"/></div>
+    </div>
+  </div>
+  <!--Map-->
+  <div id='map'></div>
+  <script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoidXJhbmF6IiwiYSI6ImNpaTM1Y29pdjAwMnd2bm0yMjhvN2R5YWQifQ.0lB3sz08vtttzGY6t-cPcw';
+  var map = new mapboxgl.Map({
+      container: 'map', // container id
+      style: 'mapbox://styles/uranaz/cimulaofe00948sko9gg05fjp', //stylesheet location
+      center: [37.622507,55.754058], // starting position
+      zoom: 11, // starting zoom
+      maxZoom: 18,
+      minZoom:10
+  });
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="cycle.js"></script>
+</body>
+</html>
